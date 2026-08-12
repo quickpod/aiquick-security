@@ -1,0 +1,13 @@
+{
+  "slug": "aiquick-security",
+  "name": "AIQuick Security",
+  "tagline": "Open-source, privacy-respecting malware scanner \u2014 ClamAV-backed with built-in rules, on-demand and scheduled scans, no telemetry.",
+  "categorySlug": "security-scanners",
+  "license": "Apache-2.0",
+  "description": "A privacy-respecting, offline malware scanner. It uses the open-source ClamAV engine when it is installed (clamscan/clamdscan) and always applies its own built-in signature rules, so it still catches known-bad files even with no engine present. Run an on-demand scan of a folder or your whole account, or set up a scheduled scan. Virus definitions and rules only ever update when you explicitly ask \u2014 nothing updates automatically and nothing is ever phoned home. No telemetry. Lives in the system tray so a scan is one click away.",
+  "aiStack": "Python (tkinter + CLI), ClamAV (optional clamscan/clamdscan), ctypes system tray",
+  "platforms": [
+    "windows"
+  ],
+  "buildEntry": "aiquick_security_app.py"
+}

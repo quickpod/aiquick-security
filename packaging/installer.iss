@@ -1,6 +1,6 @@
 ; Inno Setup — AIQuick Security. Signed single-file installer, compiled in CI.
 #define AppName "AIQuick Security"
-#define AppVersion "1.0.1"
+#define AppVersion "1.0.4"
 
 [Setup]
 AppMutex=QuickOpen.AIQuickSecurity
@@ -24,7 +24,7 @@ WizardSmallImageFile=branding\wizard-small.bmp
 AppCopyright=Apache-2.0. 100%% AI-built, published on QuickOpen (quickopen.ai).
 VersionInfoCompany=QuickOpen
 VersionInfoProductName=AIQuick Security
-VersionInfoVersion=1.0.1.0
+VersionInfoVersion=1.0.4.0
 PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 ArchitecturesInstallIn64BitMode=x64compatible

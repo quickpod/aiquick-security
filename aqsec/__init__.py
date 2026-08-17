@@ -57,7 +57,7 @@ from .defs import (
 )
 from .schedule import ScheduleConfig, is_due, next_run_after
 
-__version__ = "1.0.4"
+__version__ = "1.0.5"
 
 __all__ = [
     "AQSecError",

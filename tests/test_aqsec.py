@@ -393,4 +393,30 @@ def test_gui_build_app_smoke():  # pragma: no cover - only with a display
 
 
 def test_public_version():
-    assert aqsec.__version__ == "1.0.0"
+    """__version__ is well-formed AND agrees with what we package.
+
+    This used to assert a hard-coded literal ("1.0.0"), which is a tautology
+    that restates the constant one file away and cannot fail for any reason
+    worth knowing. It survived five releases untouched and then broke the
+    Windows CI build at 1.0.5 -- the only thing it ever detected was its own
+    staleness.
+
+    What can actually go wrong here is DRIFT: bump-version.sh stamps
+    packaging/installer.iss, while the deb and apt take their version from
+    __version__ in this package. Bumping one and not the other ships an
+    installer whose label disagrees with the code inside it -- which is
+    exactly what was found on 2026-08-20 (code 1.0.5, installer 1.0.4).
+    """
+    import re
+    from pathlib import Path
+
+    assert re.fullmatch(r"\d+\.\d+\.\d+", aqsec.__version__), aqsec.__version__
+
+    iss = Path(__file__).resolve().parent.parent / "packaging" / "installer.iss"
+    if iss.exists():
+        m = re.search(r'^#define\s+AppVersion\s+"([^"]+)"', iss.read_text(),
+                      re.MULTILINE)
+        assert m, "installer.iss has no AppVersion define"
+        assert m.group(1) == aqsec.__version__, (
+            f"version drift: installer.iss={m.group(1)} "
+            f"but aqsec.__version__={aqsec.__version__}")

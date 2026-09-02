@@ -1,6 +1,6 @@
 ; Inno Setup — AIQuick Security. Signed single-file installer, compiled in CI.
 #define AppName "AIQuick Security"
-#define AppVersion "1.0.5"
+#define AppVersion "1.0.6"
 
 [Setup]
 AppMutex=QuickOpen.AIQuickSecurity
